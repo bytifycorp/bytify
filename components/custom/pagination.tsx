@@ -46,8 +46,9 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages }) => {
                         </Link>
                     )}
 
-                    {Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i).map((page) => (
+                    {Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i).map((page, index) => (
                         <Link
+                            key={index}
                             href={`/blog/${page}`}
                             className={`inline-flex items-center justify-center text-base font-semibold transition-all duration-200 ${
                                 currentPage === page ? "bg-gray-900 text-white border-gray-900 pointer-events-none" : "text-gray-600 bg-white border border-gray-300 hover:bg-gray-50 cursor-pointer"
