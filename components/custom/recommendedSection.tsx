@@ -16,7 +16,7 @@ interface BlogPost {
 }
 
 interface RecommendedSectionProps {
-    posts: BlogPost[];
+    posts: any[];
 }
 
 const RecommendedSection: React.FC<RecommendedSectionProps> = ({ posts }) => {
