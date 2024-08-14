@@ -14,7 +14,7 @@ const Footer = () => {
                         </Link>
                     </div>
                     <ul className="flex items-center justify-center mt-8 space-x-6 sm:mt-12 sm:space-x-16 lg:mt-0">
-                        {NAV_ITEMS.main.map((item, index) => (
+                        {NAV_ITEMS.main.map((item: any, index) => (
                             <li key={index}>
                                 <Link
                                     href={item.href}
@@ -27,7 +27,7 @@ const Footer = () => {
                         ))}
                     </ul>
                     <ul className="flex items-center justify-center mt-8 space-x-3 sm:mt-12 lg:justify-end lg:mt-0">
-                        {NAV_ITEMS.social.map((item, index) => (
+                        {NAV_ITEMS.social.map((item: any, index) => (
                             <li key={index}>
                                 <Link
                                     href={item.href}
@@ -45,7 +45,7 @@ const Footer = () => {
                 <hr className="mt-10 border-gray-300 dark:border-gray-700" />
                 <div className="mt-10 md:flex md:items-center md:justify-between">
                     <ul className="flex items-center justify-center space-x-6 md:order-2 md:justify-end">
-                        {NAV_ITEMS.footer.map((item, index) => (
+                        {NAV_ITEMS.footer.map((item: any, index) => (
                             <li key={index}>
                                 <Link
                                     href={item.href}

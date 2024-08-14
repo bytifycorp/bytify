@@ -23,7 +23,7 @@ export default function RootLayout({
                 <div className="relative">
                     <HeaderNav />
                     {children}
-                    <FooterPromotion />
+                    {/* <FooterPromotion /> */}
                     <Footer />
                 </div>
             </body>

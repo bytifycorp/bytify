@@ -42,7 +42,7 @@ const BlogPost = async ({ params }: any) => {
                             <article className="mt-0 text-base font-normal leading-7 text-gray-700 font-pj prose max-w-full lg:max-w-4xl prose-h2:text-gray-900 lg:mt-0 lg:prose-lg lg:col-span-8 prose-blockquote:lg:text-xl prose-blockquote:lg:leading-9 prose-blockquote:not-italic prose-blockquote:border-none prose-blockquote:text-lg prose-blockquote:leading-8 prose-blockquote:p-0 prose-blockquote:lg:p-0 prose-blockquote:font-medium prose-blockquote:text-gray-900">
                                 {post.content}
                             </article>
-                            <section className="py-6 bg-white sm:pt-8 lg:pt-10 sm:pb-0 lg:pb-0">
+                            {/* <section className="py-6 bg-white sm:pt-8 lg:pt-10 sm:pb-0 lg:pb-0">
                                 <div className="mx-auto max-w-7xl">
                                     <div className="w-full border-gray-200 border">
                                         <div className="sm:flex p-6 sm:items-start">
@@ -98,7 +98,7 @@ const BlogPost = async ({ params }: any) => {
                                         </div>
                                     </div>
                                 </div>
-                            </section>
+                            </section> */}
                         </div>
                         <div className="lg:col-span-2 space-y-10 flex flex-col">
                             {/* RECENT POSTS */}
@@ -110,11 +110,11 @@ const BlogPost = async ({ params }: any) => {
                             {/* END TAG CLOUD */}
 
                             {/* MAILING LIST SIGNUP */}
-                            <Newsletter />
+                            {/* <Newsletter /> */}
                             {/* END MAILING LIST SIGNUP */}
 
                             {/* AD COMPONENT */}
-                            <div className="overflow-hidden text-center sm:h-[calc(100vh-64px)] sticky top-8 bg-gray-900 rounded-lg">
+                            {/* <div className="overflow-hidden text-center sm:h-[calc(100vh-64px)] sticky top-8 bg-gray-900 rounded-lg">
                                 <div className="absolute inset-0">
                                     <img
                                         className="object-cover w-full h-full"
@@ -159,7 +159,7 @@ const BlogPost = async ({ params }: any) => {
                                         </button>
                                     </form>
                                 </div>
-                            </div>
+                            </div> */}
                             {/* END AD COMPONENT */}
                         </div>
                     </div>

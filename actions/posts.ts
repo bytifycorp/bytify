@@ -3,6 +3,7 @@
 import { webConfig } from "@/config"
 import { compileMDX } from 'next-mdx-remote/rsc'
 import { BlogPostType, AuthorType } from "@/types/types"
+import { convertToSlug } from "@/lib/utils"
 
 
 export async function getAllPostsMeta() {
@@ -29,11 +30,23 @@ export async function getPostsMetaByPage(pageNumber = 1, pageSize = 8, tag: stri
     }
 
     if (tag) {
-        MDX_FILES_META = MDX_FILES_META.filter((post) => post.tags?.includes(tag));
+        MDX_FILES_META = MDX_FILES_META.filter((post) => {
+            for (let i = 0; i < post.tags.length; i++) {
+                if (convertToSlug(post.tags[i]) === convertToSlug(tag)) {
+                    return true
+                }
+            }
+            return false;
+        });
     }
 
     if (category) {
-        MDX_FILES_META = MDX_FILES_META.filter((post) => post.category.toLowerCase() === category?.toLowerCase());
+        MDX_FILES_META = MDX_FILES_META.filter((post) => {
+            if (convertToSlug(post.category) === convertToSlug(category)) {
+                return true
+            }
+            return false;
+        });
     }
 
     if (author) {

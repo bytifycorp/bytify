@@ -5,6 +5,7 @@ import Footer from "@/components/custom/footer";
 import FooterPromotion from "@/components/custom/footer-promotion";
 import HeaderNav from "@/components/custom/header-nav";
 import Pagination from "@/components/custom/pagination";
+import { convertToSlug } from "@/lib/utils";
 // components/BlogCard.tsx
 import Image from "next/image";
 import Link from "next/link";
@@ -106,7 +107,7 @@ const BlogContainer = async ({ params, searchParams }: { params: { tag: string }
 
 export async function generateStaticParams() {
     const tags = await getAllTags(1000);
-    return tags.map((tag) => ({ tag: tag.replace(/\s+/g, "-").toLowerCase() }));
+    return tags.map((tag) => ({ tag: convertToSlug(tag) }));
 }
 
 export default BlogContainer;

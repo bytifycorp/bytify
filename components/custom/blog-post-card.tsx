@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { convertToSlug } from "@/lib/utils";
 
 interface BlogPost {
     frontmatter: {
@@ -68,7 +69,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
                         </li>
                     </ul>
                     <h3 className="mt-4 text-lg font-semibold">
-                        <Link href={`/${category}/${title.replace(/\s+/g, "-").toLowerCase()}`}>
+                        <Link href={`/${category}/${convertToSlug(title)}`}>
                             <span className="hover:underline">{title}</span>
                         </Link>
                     </h3>

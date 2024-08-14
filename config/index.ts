@@ -1,7 +1,7 @@
 import { FaceIcon, GitHubLogoIcon, InstagramLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 
 export const webConfig = {
-    "name": "my-blog",
+    "name": "Bytify",
     "description": "My Blog",
     "github_repository": "https://github.com/bytifycorp/blog-posts",
     "raw_github_repository": "https://raw.githubusercontent.com/bytifycorp/blog-posts/main"
