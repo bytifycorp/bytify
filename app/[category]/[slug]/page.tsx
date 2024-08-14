@@ -25,7 +25,7 @@ const BlogPost = async ({ params }: any) => {
     return (
         <div className="relative">
             <section className="featured-image-container relative">
-                <div className=" pt-20 pb-20 sm:pt-32 sm:pb-32 min-h-[70vh] w-full flex justify-center items-center glass-effect">
+                <div className=" pt-6 pb-6 px-4 sm:pt-32 sm:pb-32 min-h-[40vh] sm:min-h-[70vh] w-full flex justify-center items-center glass-effect">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="mt-5 text-4xl font-bold leading-tight text-gray-100 sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight font-pj">{post.frontmatter.title}</h1>
                         <p className="mt-8 text-base text-gray-50 font-inter">
@@ -35,11 +35,11 @@ const BlogPost = async ({ params }: any) => {
                 </div>
             </section>
 
-            <section className="relative py-12 bg-white sm:py-16 lg:py-20">
+            <section className="relative py-0 bg-white sm:py-16 lg:py-20">
                 <div className="px-4 bg-white py-10 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                     <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-6 lg:gap-x-12 xl:gap-x-20">
                         <div className="lg:col-span-4 rounded-xl">
-                            <article className="mt-12 text-base font-normal leading-7 text-gray-700 font-pj prose max-w-full lg:max-w-4xl prose-h2:text-gray-900 lg:mt-0 lg:prose-lg lg:col-span-8 prose-blockquote:lg:text-xl prose-blockquote:lg:leading-9 prose-blockquote:not-italic prose-blockquote:border-none prose-blockquote:text-lg prose-blockquote:leading-8 prose-blockquote:p-0 prose-blockquote:lg:p-0 prose-blockquote:font-medium prose-blockquote:text-gray-900">
+                            <article className="mt-0 text-base font-normal leading-7 text-gray-700 font-pj prose max-w-full lg:max-w-4xl prose-h2:text-gray-900 lg:mt-0 lg:prose-lg lg:col-span-8 prose-blockquote:lg:text-xl prose-blockquote:lg:leading-9 prose-blockquote:not-italic prose-blockquote:border-none prose-blockquote:text-lg prose-blockquote:leading-8 prose-blockquote:p-0 prose-blockquote:lg:p-0 prose-blockquote:font-medium prose-blockquote:text-gray-900">
                                 {post.content}
                             </article>
                             <section className="py-6 bg-white sm:pt-8 lg:pt-10 sm:pb-0 lg:pb-0">
@@ -114,7 +114,7 @@ const BlogPost = async ({ params }: any) => {
                             {/* END MAILING LIST SIGNUP */}
 
                             {/* AD COMPONENT */}
-                            <div className="overflow-hidden text-center h-[calc(100vh-64px)] sticky top-8 bg-gray-900 rounded-lg">
+                            <div className="overflow-hidden text-center sm:h-[calc(100vh-64px)] sticky top-8 bg-gray-900 rounded-lg">
                                 <div className="absolute inset-0">
                                     <img
                                         className="object-cover w-full h-full"

@@ -2,7 +2,7 @@
 
 const FooterPromotion = () => {
     return (
-        <section className="py-12 bg-white sm:py-16 lg:py-20 border-gray-300 border-t">
+        <section className="py-4 bg-white sm:py-16 lg:py-20 border-gray-300 border-t">
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                 <div className="mx-auto overflow-hidden lg:max-w-5xl bg-gray-50 rounded-xl sm:max-w-md">
                     <div className="p-8 sm:p-10">

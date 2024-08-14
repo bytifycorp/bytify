@@ -1,6 +1,6 @@
 "use server";
 
-import { getPostBySlug, getPostsMetaByPage } from "@/actions/posts";
+import { getAllPostsMeta, getAllTags, getPostBySlug, getPostsMetaByPage } from "@/actions/posts";
 import Footer from "@/components/custom/footer";
 import FooterPromotion from "@/components/custom/footer-promotion";
 import HeaderNav from "@/components/custom/header-nav";
@@ -67,17 +67,22 @@ const BlogCard: React.FC<BlogPost> = ({ title, featured_image, category, descrip
     );
 };
 
-const BlogContainer = async ({ params, searchParams }: { params: { slug: string }; searchParams: { [key: string]: string | undefined } }) => {
+const BlogContainer = async ({ params, searchParams }: { params: { tag: string }; searchParams: { [key: string]: string | undefined } }) => {
     const currentPage = parseInt(searchParams.page || "1");
-    const { posts, totalPages } = await getPostsMetaByPage(currentPage, 8);
+    const { tag } = params;
+    const { posts, totalPages } = await getPostsMetaByPage(currentPage, 1000, tag);
 
-    if (!posts) {
+    if (!posts || posts.length === 0) {
         notFound();
     }
 
     return (
         <section className="py-4 bg-gray-50">
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl mb-5">
+                <div className="text-center">
+                    <h2 className="text-3xl my-8 font-semibold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">{tag.toUpperCase()}</h2>
+                </div>
+                {/* Header and description */}
                 <div className="grid grid-cols-1 gap-6 px-0 mt-0 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:px-0">
                     {posts.map((post) => (
                         <BlogCard
@@ -94,8 +99,14 @@ const BlogContainer = async ({ params, searchParams }: { params: { slug: string 
                     ))}
                 </div>
             </div>
-            <Pagination currentPage={currentPage} totalPages={totalPages} />
+            {/* <Pagination currentPage={currentPage} totalPages={totalPages} /> */}
         </section>
     );
 };
+
+export async function generateStaticParams() {
+    const tags = await getAllTags(1000);
+    return tags.map((tag) => ({ tag: tag.replace(/\s+/g, "-").toLowerCase() }));
+}
+
 export default BlogContainer;
