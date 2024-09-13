@@ -1,12 +1,7 @@
 "use server";
 
-import { getAllPostsMeta, getPostBySlug, getPostsMetaByPage } from "@/actions/posts";
-import Footer from "@/components/custom/footer";
-import FooterPromotion from "@/components/custom/footer-promotion";
-import HeaderNav from "@/components/custom/header-nav";
-import Pagination from "@/components/custom/pagination";
+import { getAllPostsMeta, getPostsMetaByPage } from "@/actions/posts";
 // components/BlogCard.tsx
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 

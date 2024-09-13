@@ -2,10 +2,14 @@ import { FaceIcon, GitHubLogoIcon, InstagramLogoIcon, TwitterLogoIcon } from "@r
 
 export const webConfig = {
     "name": "Bytify",
+    "title": "Bytify Blog",
     "description": "My Blog",
     "github_repository": "https://github.com/bytifycorp/blog-posts",
-    "raw_github_repository": "https://raw.githubusercontent.com/bytifycorp/blog-posts/main"
+    "raw_github_repository": "https://raw.githubusercontent.com/bytifycorp/blog-posts/main",
+    "website_url": "https://bytify.vercel.app"
 }
+
+export const BASE_URL = webConfig.website_url
 
 export const NAV_ITEMS = {
     main: [

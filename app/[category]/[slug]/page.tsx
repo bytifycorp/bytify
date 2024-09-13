@@ -1,14 +1,48 @@
 import { getAllPostsMeta, getPostBySlug, getRecentPosts, getRelatedPosts } from "@/actions/posts";
-import Footer from "@/components/custom/footer";
-import FooterPromotion from "@/components/custom/footer-promotion";
-import HeaderNav from "@/components/custom/header-nav";
-import Newsletter from "@/components/custom/newsletter";
 import RecentPosts from "@/components/custom/recent-posts";
 import RelatedPosts from "@/components/custom/related-posts";
 import TagCloud from "@/components/custom/tag-cloud";
+import { BASE_URL } from "@/config";
 import { BlogPostType } from "@/types/types";
-import Link from "next/link";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const post = await getPostBySlug(params.slug);
+
+    if (!post) {
+        return {};
+    }
+
+    const ogImage = `${BASE_URL}/api/og?title=${encodeURIComponent(post.frontmatter.title)}&author=${encodeURIComponent(post.frontmatter.author)}&date=${encodeURIComponent(post.frontmatter.date)}`;
+
+    return {
+        title: post.frontmatter.title,
+        description: post.frontmatter.description,
+        openGraph: {
+            title: post.frontmatter.title,
+            description: post.frontmatter.description,
+            type: "article",
+            publishedTime: post.frontmatter.date,
+            authors: [post.frontmatter.author],
+            tags: post.frontmatter.tags,
+            images: [
+                {
+                    url: ogImage,
+                    width: 1200,
+                    height: 630,
+                    alt: post.frontmatter.title,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: post.frontmatter.title,
+            description: post.frontmatter.description,
+            images: [ogImage],
+        },
+    };
+}
 
 const BlogPost = async ({ params }: any) => {
     const { slug, category } = params;
