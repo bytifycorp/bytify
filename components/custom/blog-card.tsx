@@ -44,3 +44,5 @@ const BlogCard: React.FC<BlogPostType> = ({ title, featured_image, category, des
         </div>
     );
 };
+
+export default BlogCard;

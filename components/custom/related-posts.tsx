@@ -31,9 +31,7 @@ const RelatedPosts = ({ relatedPosts }: { relatedPosts: BlogPostType[] }) => {
                         <div className="flex items-end justify-between">
                             <div className="flex-1 text-center lg:text-left">
                                 <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">Related posts</h2>
-                                <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600 lg:mx-0">
-                                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis.
-                                </p>
+                                <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600 lg:mx-0">Read more from the related content you may be interested in.</p>
                             </div>
                             <div className="flex lg:items-center lg:space-x-3">
                                 <button
@@ -71,7 +69,11 @@ const RelatedPosts = ({ relatedPosts }: { relatedPosts: BlogPostType[] }) => {
                                                 <img className="object-cover w-full h-full" src={post.featured_image + "?v=" + post.slug} alt="" />
                                             </Link>
                                             <div className="absolute top-4 left-4">
-                                                <span className="px-4 py-2 text-xs font-semibold tracking-widest text-gray-900 uppercase bg-white rounded-full">{post.category}</span>
+                                                <Link href={`/${post.category}`}>
+                                                    <span className="px-4 py-2 text-xs font-semibold tracking-widest text-gray-900 uppercase bg-white rounded-full hover:bg-blue-600 hover:text-white">
+                                                        {post.category}
+                                                    </span>
+                                                </Link>
                                             </div>
                                         </div>
                                         <span className="block mt-6 text-sm font-semibold tracking-widest text-gray-500 uppercase">{post.date}</span>
@@ -80,7 +82,7 @@ const RelatedPosts = ({ relatedPosts }: { relatedPosts: BlogPostType[] }) => {
                                                 {post.title}
                                             </Link>
                                         </p>
-                                        <p className="mt-4 text-base text-gray-600">{post.description}</p>
+                                        <p className="mt-4 text-base text-gray-600 line-clamp-3">{post.description}</p>
                                         <Link
                                             href={`/${post.category}/${post.slug}`}
                                             title="Continue Reading"
