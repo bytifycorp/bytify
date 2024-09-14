@@ -16,6 +16,7 @@ interface BlogPostType {
     tags: string[];
     published: boolean;
     featured_image: string;
+    banner_image: ?string;
     author: string;
     category: string;
     slug: string;

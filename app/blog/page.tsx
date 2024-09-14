@@ -23,7 +23,10 @@ interface BlogPost {
 
 const BlogCard: React.FC<BlogPost> = ({ title, featured_image, category, description, tags, slug, readTime }) => {
     return (
-        <div className="flex flex-col overflow-hidden transition-all duration-200 transform bg-white border border-gray-100 shadow group rounded-xl hover:shadow-lg hover:-translate-y-1">
+        <div className="relative flex flex-col overflow-hidden transition-all duration-200 transform bg-white border border-gray-100 shadow group rounded-xl hover:shadow-lg hover:-translate-y-1">
+            <Link href={`/${category}`} className="">
+                <p className="text-xs font-medium absolute z-50 text-gray-900 bg-white/60 px-3 py-2 border-blue-200 border rounded-full top-2 right-2 hover:bg-blue-100">{category}</p>
+            </Link>
             <Link href={`/${category}/${slug}`} className="flex shrink-0 aspect-w-4 aspect-h-3">
                 <img className="object-cover w-full h-full transition-all duration-200 transform group-hover:scale-110" src={featured_image} alt={title} />
             </Link>
@@ -36,12 +39,6 @@ const BlogCard: React.FC<BlogPost> = ({ title, featured_image, category, descrip
             <div className="px-4 py-5 mt-auto border-t border-gray-100 sm:px-6">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                        <p className="text-sm font-medium text-gray-900">
-                            <Link href={`/${category}/${slug}`} className="">
-                                {category}
-                            </Link>
-                        </p>
-                        <span className="text-sm font-medium text-gray-900"> • </span>
                         <p className="text-sm font-medium text-gray-900">{readTime}</p>
                     </div>
 

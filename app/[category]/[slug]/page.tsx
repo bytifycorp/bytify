@@ -2,6 +2,7 @@ import { getAllPostsMeta, getPostBySlug, getRecentPosts, getRelatedPosts } from 
 import RecentPosts from "@/components/custom/recent-posts";
 import RelatedPosts from "@/components/custom/related-posts";
 import TagCloud from "@/components/custom/tag-cloud";
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import { BASE_URL } from "@/config";
 import { BlogPostType } from "@/types/types";
 import { Metadata } from "next";
@@ -44,6 +45,46 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
 }
 
+const listOfColors = [
+    "239, 68, 68", // bg-red-500
+    "59, 130, 246", // bg-blue-500
+    "34, 197, 94", // bg-green-500
+    "234, 179, 8", // bg-yellow-500
+    "168, 85, 247", // bg-purple-500
+    "236, 72, 153", // bg-pink-500
+    "99, 102, 241", // bg-indigo-500
+    "20, 184, 166", // bg-teal-500
+    "249, 115, 22", // bg-orange-500
+    "107, 114, 128", // bg-gray-500
+    "6, 182, 212", // bg-cyan-500
+    "16, 185, 129", // bg-emerald-500
+    "163, 230, 53", // bg-lime-500
+    "244, 63, 94", // bg-rose-500
+    "14, 165, 233", // bg-sky-500
+
+    // Additional colors
+    "220, 38, 38", // bg-red-600
+    "37, 99, 235", // bg-blue-600
+    "22, 163, 74", // bg-green-600
+    "202, 138, 4", // bg-yellow-600
+    "147, 51, 234", // bg-purple-600
+    "219, 39, 119", // bg-pink-600
+    "79, 70, 229", // bg-indigo-600
+    "13, 148, 136", // bg-teal-600
+    "234, 88, 12", // bg-orange-600
+    "75, 85, 99", // bg-gray-600
+    "8, 145, 178", // bg-cyan-600
+    "5, 150, 105", // bg-emerald-600
+    "132, 204, 22", // bg-lime-600
+    "225, 29, 72", // bg-rose-600
+    "2, 132, 199", // bg-sky-600
+];
+
+const getRandomColor = () => {
+    const randomIndex = Math.floor(Math.random() * listOfColors.length);
+    return listOfColors[randomIndex];
+};
+
 const BlogPost = async ({ params }: any) => {
     const { slug, category } = params;
 
@@ -58,15 +99,28 @@ const BlogPost = async ({ params }: any) => {
 
     return (
         <div className="relative">
-            <section className="featured-image-container relative">
-                <div className=" pt-6 pb-6 px-4 sm:pt-32 sm:pb-32 min-h-[40vh] sm:min-h-[70vh] w-full flex justify-center items-center glass-effect">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="mt-5 text-4xl font-bold leading-tight text-gray-100 sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight font-pj">{post.frontmatter.title}</h1>
-                        <p className="mt-8 text-base text-gray-50 font-inter">
-                            {post.frontmatter.author} | {new Date(post.frontmatter.date).toDateString()} | {post.frontmatter.readingTime} min read
-                        </p>
+            <section className="relative  glass-effect">
+                <BackgroundGradientAnimation
+                    containerClassName="max-h-[40vh] sm:max-h-[70vh] w-full"
+                    gradientBackgroundStart="rgba(0, 0, 0, 0.5)"
+                    gradientBackgroundEnd="rgba(0, 0, 0, 0.5)"
+                    firstColor={getRandomColor()}
+                    secondColor={getRandomColor()}
+                    thirdColor={getRandomColor()}
+                    fourthColor={getRandomColor()}
+                    fifthColor={getRandomColor()}
+                    pointerColor={getRandomColor()}
+                    size="100%"
+                >
+                    <div className="absolute z-50 inset-0 flex items-center justify-cente font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl">
+                        <div className="bg-clip-text text-white/60 drop-shadow-2xl bg-gradient-to-b from-white/100 to-white/20 max-w-4xl mx-auto text-center">
+                            <h1 className="mt-5 text-4xl font-bold  sm:text-5xl lg:text-6xl font-pj">{post.frontmatter.title}</h1>
+                            <p className="mt-8 text-lg font-inter">
+                                {post.frontmatter.author} | {new Date(post.frontmatter.date).toDateString()} | {post.frontmatter.readingTime} min read
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </BackgroundGradientAnimation>
             </section>
 
             <section className="relative py-0 bg-white sm:py-16 lg:py-20">

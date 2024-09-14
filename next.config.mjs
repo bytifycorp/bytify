@@ -10,7 +10,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "landingfoliocom.imgix.net",
+                hostname: "i.ibb.co",
                 port: "",
                 pathname: "/**",
             },
