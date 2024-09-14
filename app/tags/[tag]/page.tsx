@@ -2,7 +2,7 @@
 
 import { getAllTags, getPostsMetaByPage } from "@/actions/posts";
 import BlogCard from "@/components/custom/blog-card";
-import { convertToSlug } from "@/lib/utils";
+import { convertToSlug, cn } from "@/lib/utils";
 import { notFound } from "next/navigation";
 
 const BlogContainer = async ({ params, searchParams }: { params: { tag: string }; searchParams: { [key: string]: string | undefined } }) => {
@@ -15,13 +15,13 @@ const BlogContainer = async ({ params, searchParams }: { params: { tag: string }
     }
 
     return (
-        <section className="py-4 bg-gray-50">
-            <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl mb-5">
+        <section className={cn("py-4 bg-gray-50 dark:bg-gray-900")}>
+            <div className={cn("px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl mb-5")}>
                 <div className="text-center">
-                    <h2 className="text-3xl my-8 font-semibold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">{tag.toUpperCase()}</h2>
+                    <h2 className={cn("text-3xl my-8 font-semibold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl")}>{tag.toUpperCase()}</h2>
                 </div>
                 {/* Header and description */}
-                <div className="grid grid-cols-1 gap-6 px-0 mt-0 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:px-0">
+                <div className={cn("grid grid-cols-1 gap-6 px-0 mt-0 sm:mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:px-0")}>
                     {posts.map((post) => (
                         <BlogCard
                             key={post.title}
