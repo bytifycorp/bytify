@@ -5,7 +5,12 @@ import HeaderNav from "@/components/custom/header-nav";
 import FooterPromotion from "@/components/custom/footer-promotion";
 import Footer from "@/components/custom/footer";
 import { webConfig } from "@/config";
-import { CSPostHogProvider } from "./providers";
+import { PHProvider } from "./providers";
+import dynamic from "next/dynamic";
+
+const PostHogPageView = dynamic(() => import("./PostHogPageView"), {
+    ssr: false,
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,16 +51,17 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <CSPostHogProvider>
+            <PHProvider>
                 <body className={inter.className}>
                     <div className="relative">
                         <HeaderNav />
                         {children}
                         {/* <FooterPromotion /> */}
                         <Footer />
+                        <PostHogPageView />
                     </div>
                 </body>
-            </CSPostHogProvider>
+            </PHProvider>
         </html>
     );
 }
