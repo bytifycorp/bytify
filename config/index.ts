@@ -7,7 +7,7 @@ export const webConfig = {
     "tagline": "Where Words Wander Wildly!",
     "github_repository": "https://github.com/bytifycorp/blog-posts",
     "raw_github_repository": "https://raw.githubusercontent.com/bytifycorp/blog-posts/main",
-    "website_url": "https://quirkywrites.com"
+    "website_url": "https://www.quirkywrites.com"
 }
 
 export const BASE_URL = webConfig.website_url
