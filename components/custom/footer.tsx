@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="px-0 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="lg:flex lg:items-center lg:justify-between">
                     <div>
-                        <Link href="/" title="Home" className="flex text-xl sm:text-2xl font-mono font-black">
+                        <Link href="/" title="Home" className="flex justify-center text-xl sm:text-2xl font-mono font-black">
                             {webConfig.name}
                         </Link>
                     </div>
@@ -26,7 +26,7 @@ const Footer = () => {
                             </li>
                         ))}
                     </ul>
-                    <ul className="flex items-center justify-center mt-8 space-x-3 sm:mt-12 lg:justify-end lg:mt-0">
+                    {/* <ul className="flex items-center justify-center mt-8 space-x-3 sm:mt-12 lg:justify-end lg:mt-0">
                         {NAV_ITEMS.social.map((item: any, index) => (
                             <li key={index}>
                                 <Link
@@ -40,7 +40,7 @@ const Footer = () => {
                                 </Link>
                             </li>
                         ))}
-                    </ul>
+                    </ul> */}
                 </div>
                 <hr className="mt-10 border-gray-300 dark:border-gray-700" />
                 <div className="mt-10 md:flex md:items-center md:justify-between">

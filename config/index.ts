@@ -1,12 +1,13 @@
 import { FaceIcon, GitHubLogoIcon, InstagramLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 
 export const webConfig = {
-    "name": "Bytify",
-    "title": "Bytify Blog",
-    "description": "My Blog",
+    "name": "Quirky Writes",
+    "title": "Quirky Writes",
+    "description": "QuirkyWrites.com brings you fresh, engaging articles that inspire curiosity and spark creativity. Dive into a unique blend of thought-provoking insights, fun stories, and quick reads on everything from lifestyle trends to fascinating facts. With bite-sized wisdom and quirky takes, QuirkyWrites is your destination for random, memorable reads that keep you entertained and informed.",
+    "tagline": "Where Words Wander Wildly!",
     "github_repository": "https://github.com/bytifycorp/blog-posts",
     "raw_github_repository": "https://raw.githubusercontent.com/bytifycorp/blog-posts/main",
-    "website_url": "https://bytify.vercel.app"
+    "website_url": "https://quirkywrites.com"
 }
 
 export const BASE_URL = webConfig.website_url
