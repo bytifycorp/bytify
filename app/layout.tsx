@@ -5,6 +5,7 @@ import HeaderNav from "@/components/custom/header-nav";
 import FooterPromotion from "@/components/custom/footer-promotion";
 import Footer from "@/components/custom/footer";
 import { webConfig } from "@/config";
+import { CSPostHogProvider } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -45,14 +46,16 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>
-                <div className="relative">
-                    <HeaderNav />
-                    {children}
-                    {/* <FooterPromotion /> */}
-                    <Footer />
-                </div>
-            </body>
+            <CSPostHogProvider>
+                <body className={inter.className}>
+                    <div className="relative">
+                        <HeaderNav />
+                        {children}
+                        {/* <FooterPromotion /> */}
+                        <Footer />
+                    </div>
+                </body>
+            </CSPostHogProvider>
         </html>
     );
 }
