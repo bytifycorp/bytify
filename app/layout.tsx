@@ -5,6 +5,7 @@ import HeaderNav from "@/components/custom/header-nav";
 import FooterPromotion from "@/components/custom/footer-promotion";
 import Footer from "@/components/custom/footer";
 import { webConfig } from "@/config";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -51,6 +52,7 @@ export default function RootLayout({
                     {children}
                     {/* <FooterPromotion /> */}
                     <Footer />
+                    <GoogleAnalytics gaId="G-XKX4ZYC6JL" />
                 </div>
             </body>
         </html>
