@@ -218,7 +218,7 @@ const BlogPost = async ({ params }: any) => {
                                 </div>
                             </section> */}
                         </div>
-                        <div className={cn("lg:col-span-2 space-y-10 flex flex-col")}>
+                        <div className={cn("lg:col-span-2 space-y-10 flex flex-col sm:h-[calc(100vh-64px)] sm:sticky sm:top-8")}>
                             {/* RECENT POSTS */}
                             <RecentPosts recentPosts={recentPosts} />
                             {/* END RECENT POSTS */}
