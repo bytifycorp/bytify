@@ -5,7 +5,7 @@ import HeaderNav from "@/components/custom/header-nav";
 import FooterPromotion from "@/components/custom/footer-promotion";
 import Footer from "@/components/custom/footer";
 import { webConfig } from "@/config";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,7 +46,6 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <GoogleTagManager gtmId="G-XKX4ZYC6JL" />
             <body className={inter.className}>
                 <div className="relative">
                     <HeaderNav />
@@ -55,6 +54,7 @@ export default function RootLayout({
                     <Footer />
                 </div>
             </body>
+            <GoogleAnalytics gaId="G-XKX4ZYC6JL" />
         </html>
     );
 }
