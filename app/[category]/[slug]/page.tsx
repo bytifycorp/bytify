@@ -7,7 +7,7 @@ import { BASE_URL } from "@/config";
 import { BlogPostType } from "@/types/types";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { cn } from "@/lib/utils";
+import { cn, convertToSlug } from "@/lib/utils";
 import Newsletter from "@/components/custom/newsletter";
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
@@ -92,7 +92,7 @@ const BlogPost = async ({ params }: any) => {
 
     const post = await getPostBySlug(slug as string);
 
-    if (!post || post.frontmatter.category?.toLowerCase() !== category.toLowerCase()) {
+    if (!post || convertToSlug(post.frontmatter.category?.toLowerCase()) !== convertToSlug(category.toLowerCase())) {
         notFound();
     }
 

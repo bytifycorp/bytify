@@ -2,6 +2,7 @@ import RSS from "rss"
 import { BASE_URL, webConfig } from "@/config";
 import { getAllPostsMeta } from "@/actions/posts";
 import { AuthorType } from "@/types/types";
+import { convertToSlug } from "@/lib/utils";
 
 // Make sure you have a baseUrl defined in your config
 const defaultAuthor: AuthorType = {
@@ -29,8 +30,8 @@ export async function GET(request: Request) {
     .forEach((post) => {
       feed.item({
         title: post.title,
-        guid: `${BASE_URL}/${post.category}/${post.slug}`,
-        url: `${BASE_URL}/${post.category}/${post.slug}`,
+        guid: `${BASE_URL}/${convertToSlug(post.category)}/${convertToSlug(post.slug)}`,
+        url: `${BASE_URL}/${convertToSlug(post.category)}/${convertToSlug(post.slug)}`,
         date: post.date,
         description: post.description || "",
         author: post.author || defaultAuthor.name,

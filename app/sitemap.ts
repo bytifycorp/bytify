@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { getAllPostsMeta, getAllTags } from "@/actions/posts";
 import { BASE_URL } from "@/config";
+import { convertToSlug } from "@/lib/utils";
 
 function escapeXml(unsafe: string): string {
     return unsafe.replace(/[<>&'"]/g, (c) => {
@@ -26,20 +27,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Generate sitemap entries for posts
     const postEntries = posts.map((post) => ({
-        url: escapeXml(`${BASE_URL}/${post.category}/${post.slug}`),
+        url: escapeXml(`${BASE_URL}/${convertToSlug(post.category)}/${convertToSlug(post.slug)}`),
         lastModified: post.date,
     }));
 
     // Generate sitemap entries for tags
     const tagEntries = tags.map((tag) => ({
-        url: escapeXml(`${BASE_URL}/tags/${tag}`),
+        url: escapeXml(`${BASE_URL}/tags/${convertToSlug(tag)}`),
         lastModified: now,
     }));
 
     // Generate sitemap entries for categories
     const categories = Array.from(new Set(posts.map((post) => post.category)));
     const categoryEntries = categories.map((category) => ({
-        url: escapeXml(`${BASE_URL}/${category}`),
+        url: escapeXml(`${BASE_URL}/${convertToSlug(category)}`),
         lastModified: now,
     }));
 

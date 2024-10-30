@@ -2,7 +2,7 @@
 
 import { BlogPostType } from "@/types/types";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { cn, convertToSlug } from "@/lib/utils";
 
 const RecentPosts = ({ recentPosts }: { recentPosts: BlogPostType[] }) => {
     return (
@@ -23,7 +23,7 @@ const RecentPosts = ({ recentPosts }: { recentPosts: BlogPostType[] }) => {
                                 <div className="ml-5">
                                     <p className={cn("text-xs font-normal text-gray-900 dark:text-gray-300")}>{post.date}</p>
                                     <p className={cn("font-medium text-gray-900 dark:text-white mt-1")}>
-                                        <Link href={`/${post.category}/${post.slug}`} title={post.title}>
+                                        <Link href={`/${convertToSlug(post.category)}/${convertToSlug(post.slug)}`} title={post.title}>
                                             {post.title}
                                             <span className="absolute inset-0" aria-hidden="true" />
                                         </Link>
